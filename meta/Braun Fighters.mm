@@ -13,8 +13,7 @@
       Is blind, idk.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1626100226714" ID="ID_1898425415" MODIFIED="1626100243400" TEXT="Moves">
 <node CREATED="1626101744379" ID="ID_1691722417" MODIFIED="1626200429146" TEXT="Normal"/>
@@ -36,8 +35,7 @@
       Captain America or something.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1626100226714" ID="ID_1344085803" MODIFIED="1626100243400" TEXT="Moves">
 <node CREATED="1626102962956" ID="ID_1319562403" MODIFIED="1626200447753" TEXT="Normal"/>
@@ -48,7 +46,7 @@
 </node>
 <node CREATED="1626100228769" ID="ID_979782147" MODIFIED="1626100237843" TEXT="Art"/>
 </node>
-<node CREATED="1626097266043" ID="ID_986134513" MODIFIED="1626102831103" TEXT="&quot;Gundere&quot; aka boomdere">
+<node CREATED="1626097266043" ID="ID_986134513" MODIFIED="1626375391171" TEXT="Sasha - Boom">
 <node CREATED="1626100214367" ID="ID_1879071088" MODIFIED="1626201757878" TEXT="Lore">
 <richcontent TYPE="NOTE"><html>
   <head>
@@ -74,8 +72,7 @@
       She's willing to go as far as making her own explosive artillery to obtain what she wants.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1626100226714" ID="ID_504777064" MODIFIED="1626100243400" TEXT="Moves">
 <node CREATED="1626101744379" ID="ID_606855485" MODIFIED="1626201793440" TEXT="Normal">
@@ -91,8 +88,7 @@
       The bomb explodes after 5 seconds, or after another press of the attack button.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1626101873660" ID="ID_765795710" MODIFIED="1626201846649" TEXT="Special-side">
 <richcontent TYPE="NOTE"><html>
@@ -104,8 +100,7 @@
       Fire a bazooka?
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1626101874332" ID="ID_1541013119" MODIFIED="1626201829261" TEXT="Special-up">
 <richcontent TYPE="NOTE"><html>
@@ -120,8 +115,7 @@
       Explodes shorty after being shot.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1626101959057" ID="ID_332819826" MODIFIED="1626201837633" TEXT="Special-down">
 <richcontent TYPE="NOTE"><html>
@@ -133,14 +127,13 @@
       Places down a mine?
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1626101995289" ID="ID_736522280" MODIFIED="1626200455849" TEXT="Neutral Special"/>
 </node>
 <node CREATED="1626100228769" ID="ID_704213889" MODIFIED="1626100237843" TEXT="Art"/>
 </node>
-<node CREATED="1626097268090" ID="ID_606925102" MODIFIED="1626100250465" TEXT="Will Chair &quot;&quot;Sword&quot;man&quot;">
+<node CREATED="1626097268090" ID="ID_606925102" MODIFIED="1626375399219" TEXT="Will Chair - Punch">
 <node CREATED="1626100214367" ID="ID_1430433543" MODIFIED="1626200825101" TEXT="Lore">
 <richcontent TYPE="NOTE"><html>
   <head>
@@ -179,8 +172,7 @@
       Swings his ruler in front of him.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1626101873660" ID="ID_1257663151" MODIFIED="1626200457321" TEXT="Special-side"/>
 <node CREATED="1626101874332" ID="ID_352736031" MODIFIED="1626200457993" TEXT="Special-up"/>
@@ -202,8 +194,7 @@
       haha move go stepstep
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1626101803668" ID="ID_1901920320" MODIFIED="1626101851268" TEXT="Octo-directional Dash"/>
 <node CREATED="1626200405870" ID="ID_68700223" MODIFIED="1626200409850" TEXT="Wall Jump"/>
@@ -221,8 +212,7 @@
       The Electron Gun dwells at the summit of one of the twin towers. The arena is on the roof of one of the towers, with the electron gun room in the background.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1626201675131" ID="ID_235698555" MODIFIED="1626201679143" TEXT="Design"/>
 <node CREATED="1626201689067" ID="ID_27935240" MODIFIED="1626201690599" TEXT="Art"/>
@@ -238,8 +228,7 @@
       A channel linking from the harbor to an industrial site.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1626201675131" ID="ID_1330985214" MODIFIED="1626201679143" TEXT="Design"/>
 <node CREATED="1626201689067" ID="ID_1327541189" MODIFIED="1626201690599" TEXT="Art"/>
