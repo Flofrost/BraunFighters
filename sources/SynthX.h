@@ -5,15 +5,15 @@
 
 class Voice{
     private:
-        void (*updateFunction)(const unsigned char);
-        const unsigned char* song;
-        unsigned char options; // 0bPXXXXXXL -> P = Play  L = Loop
-        unsigned char current_note, timeout;
+        void (*updateFunction)(const uint8_t);
+        const uint8_t* song;
+        uint8_t options; // 0bPXXXXXXL -> P = Play  L = Loop
+        uint8_t current_note, timeout;
     public:
-        Voice(void (*updateFunction_source)(const unsigned char));
+        Voice(void (*updateFunction_source)(const uint8_t));
         void update();
 
-        void playSong(const unsigned char* song_source);
+        void playSong(const uint8_t* song_source);
         void playNote();
 
         void loop(const bool new_loop);

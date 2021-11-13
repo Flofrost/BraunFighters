@@ -1,7 +1,7 @@
 #include <avr/pgmspace.h>
 #include "SynthX.h"
 
-Voice::Voice(void (*updateFunction_source)(const unsigned char)){
+Voice::Voice(void (*updateFunction_source)(const uint8_t)){
     updateFunction = updateFunction_source;
     options = 0x80;
     current_note = 0;
@@ -30,7 +30,7 @@ void Voice::update(){
     }
 }
 
-void Voice::playSong(const unsigned char* song_source){
+void Voice::playSong(const uint8_t* song_source){
     song = song_source;
     current_note = pgm_read_byte(song);
     timeout = pgm_read_byte(song + (current_note<<1) + 1);
