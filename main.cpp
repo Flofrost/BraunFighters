@@ -8,22 +8,11 @@
 #define BUSW  DDRC
 #define BUSR  PINC
 
-volatile uint8_t stack[256], stackLength = 0;
+volatile uint8_t stack[256] = {0x50,0x51,0x52,0x53}, stackLength = 4;
 
 ISR(PCINT3_vect){
     cli();
-    clkF();
-    uint8_t timeout = 10;
-    if(stackLength){
-        BUSW = ~stack[--stackLength];
-        //while(BUSR != stack[stackLength]);
-    }else{
-        BUSW = 0x00;
-        //while(BUSR != 0xFF);
-    }
-    clkR();
-    while(!CLK && timeout--);
-    while(CLK && timeout--);
+
     sei();
 }
 
@@ -35,13 +24,7 @@ int main(){
     sei();
 
     while(1){
-        if(!stackLength){
-            stack[0] = 0x50;
-            stack[1] = 0x51;
-            stack[2] = 0x52;
-            stack[3] = 0x53;
-            stackLength = 4;
-        }
+
     }
 
     return 0;
