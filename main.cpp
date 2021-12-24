@@ -1,30 +1,18 @@
-#include <avr/io.h>
-#include <avr/interrupt.h>
-#include "sources/SynthX.h"
+#include <iostream>
+#include <string>
+#include "CImg.h"
 
-#define clkF() DDRD |= 0x80
-#define clkR() DDRD &= 0x7F
-#define CLK  (PIND & 0x80)
-#define BUSW  DDRC
-#define BUSR  PINC
+using namespace cimg_library;
 
-volatile uint8_t stack[256] = {0x50,0x51,0x52,0x53}, stackLength = 4;
+int main(int argc,char **argv){
 
-ISR(PCINT3_vect){
-    cli();
+    CImgDisplay main_window(200,200,"Braun Fighters",0);
 
-    sei();
-}
-
-int main(){
-
-    PCICR = 0x08;
-    PCMSK3 = 0x80; //set CLK as PCINT
-
-    sei();
-
-    while(1){
-
+    while(!main_window.is_closed()){
+        CImg<> img(main_window.window_width(),main_window.window_height(),1,3);
+        img.rand(0,255); // Fill image with noise
+        if(main_window.is_resized()) main_window.resize(CImg<>(main_window.window_width(),main_window.window_height(),1,3));
+        main_window.display(img);
     }
 
     return 0;
