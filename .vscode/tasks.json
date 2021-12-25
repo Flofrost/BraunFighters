@@ -1,0 +1,72 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Project AVR",
+            "type": "shell",
+            "command": "avr-g++",
+            "args": [
+                "-mmcu=atmega1284",
+                "-O2",
+                "-Wall",
+                "main.cpp",
+                "-o",
+                "braunFighters.elf"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },{
+            "label": "Build Project Debug AVR",
+            "type": "shell",
+            "command": "avr-g++",
+            "args": [
+                "-mmcu=atmega1284",
+                "-O2",
+                "-Wall",
+                "-DDEBUG",
+                "main.cpp",
+                "-o",
+                "braunFighters.elf"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },{
+            "label": "Upload Project AVR",
+            "type": "shell",
+            "command": "avrdude",
+            "args": [
+                "-p",
+                "m1284",
+                "-c",
+                "pickit2",
+                "-x",
+                "clockrate=1000000",
+                "-U",
+                "flash:w:braunFighters.elf:a"
+            ],
+            "problemMatcher": [
+            ]
+        },{
+            "label": "Build Project PC and Run",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "main.cpp",
+                "sources/CPU.cpp",
+                "-o",
+                "BraunFighters.run",
+                "-Dcimg_display=1",
+                "-lX11",
+                "-Wfatal-errors",
+                "-Wno-narrowing",
+                "&&", "chmod", "+x", "BraunFighters.run",
+                "&&", "./BraunFighters.run"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ]
+}
