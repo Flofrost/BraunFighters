@@ -55,13 +55,16 @@
             "args": [
                 "main.cpp",
                 "sources/CPU.cpp",
+                "sources/GPU.cpp",
+                "sources/lowMath.cpp",
                 "-o",
                 "BraunFighters.run",
                 "-Dcimg_display=1",
                 "-lX11",
+                "-O2",
                 "-Wfatal-errors",
                 "-Wno-narrowing",
-                "&&", "chmod", "+x", "BraunFighters.run",
+                "-Wno-unused-result",
                 "&&", "./BraunFighters.run"
             ],
             "problemMatcher": [
