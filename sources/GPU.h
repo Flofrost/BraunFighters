@@ -1,15 +1,8 @@
 #ifndef CRINGEGPUH
 #define CRINGEGPUH
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <time.h>
-#include <CImg.h>
 #include "lowMath.h"
 #include "Colors.h"
-
-using namespace cimg_library;
 
 const unsigned char colors[256][3] = {
     {255,255,255},{217,217,217},{178,178,178},{143,143,143},{107,107,107},{ 71, 71, 71},{ 36, 36, 36},{  0,  0,  0},
@@ -516,12 +509,9 @@ const unsigned char charset[470] = {
     0b00100000,
     0b00110000};
 
-extern CImgDisplay main_window;
-extern CImg<unsigned char> img;
-
-void GPU(int child, int p);
-void setup();
-void loop();
+extern unsigned char frame[120][120];
+extern unsigned char stack[256], stack_length;
+extern unsigned long frame_count;
 
 //Fills the whole screen with a color.
 void fillScreen(const unsigned char color);

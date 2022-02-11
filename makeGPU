@@ -1,0 +1,10 @@
+#!/bin/bash
+
+mkdir bin 2> /dev/null
+
+files=( "GPUmain.cpp" "sources/GPU.cpp" "sources/lowMath.cpp" )
+libs=( "-lX11" )
+flags=( "-Dcimg_display=1" "-O2" )
+warns=( "-Wfatal-errors" "-Wno-unused-result" )
+
+g++ ${files[@]} -o bin/braunFightersGPU ${flags[@]} ${libs[@]} ${warns[@]}

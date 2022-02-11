@@ -1,0 +1,10 @@
+#!/bin/bash
+
+mkdir bin 2> /dev/null
+
+files=( "CPUmain.cpp" )
+libs=(  )
+flags=(  )
+warns=( "-Wfatal-errors" )
+
+g++ ${files[@]} -o bin/braunFightersCPU ${flags[@]} ${warns[@]}

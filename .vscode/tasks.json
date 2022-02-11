@@ -2,73 +2,26 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build Project AVR",
+            "label": "Build GPU",
             "type": "shell",
-            "command": "avr-g++",
-            "args": [
-                "-mmcu=atmega1284",
-                "-O2",
-                "-Wall",
-                "main.cpp",
-                "-o",
-                "braunFighters.elf"
-            ],
+            "command": "./makeGPU",
             "problemMatcher": [
                 "$gcc"
             ]
-        },{
-            "label": "Build Project Debug AVR",
+        },
+        {
+            "label": "Build CPU",
             "type": "shell",
-            "command": "avr-g++",
-            "args": [
-                "-mmcu=atmega1284",
-                "-O2",
-                "-Wall",
-                "-DDEBUG",
-                "main.cpp",
-                "-o",
-                "braunFighters.elf"
-            ],
+            "command": "./makeCPU",
             "problemMatcher": [
                 "$gcc"
             ]
-        },{
-            "label": "Upload Project AVR",
+        },
+        {
+            "label": "Run",
             "type": "shell",
-            "command": "avrdude",
-            "args": [
-                "-p",
-                "m1284",
-                "-c",
-                "pickit2",
-                "-x",
-                "clockrate=1000000",
-                "-U",
-                "flash:w:braunFighters.elf:a"
-            ],
+            "command": "./BraunFighters",
             "problemMatcher": [
-            ]
-        },{
-            "label": "Build Project PC and Run",
-            "type": "shell",
-            "command": "g++",
-            "args": [
-                "main.cpp",
-                "sources/CPU.cpp",
-                "sources/GPU.cpp",
-                "sources/lowMath.cpp",
-                "-o",
-                "BraunFighters.run",
-                "-Dcimg_display=1",
-                "-lX11",
-                "-O2",
-                "-Wfatal-errors",
-                "-Wno-narrowing",
-                "-Wno-unused-result",
-                "&&", "./BraunFighters.run"
-            ],
-            "problemMatcher": [
-                "$gcc"
             ]
         }
     ]

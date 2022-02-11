@@ -2,4 +2,4 @@
 *.asm
 *.elf
 tests
-*.run
+bin
