@@ -1,4 +1,13 @@
-#! /bin/bash
+#!/bin/bash
 
-./bin/braunFightersGPU
-echo $!
+./bin/braunFightersGPU &
+GPUpid=$!
+./bin/braunFightersCPU &
+CPUpid=$!
+
+echo $GPUpid > bin/GPUpid
+echo $CPUpid > bin/CPUpid
+
+sleep 1
+kill -s RTMIN $CPUpid
+kill -s RTMIN $GPUpid 

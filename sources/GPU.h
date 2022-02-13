@@ -510,8 +510,7 @@ const unsigned char charset[470] = {
     0b00110000};
 
 extern unsigned char frame[120][120];
-extern unsigned char stack[256], stack_length;
-extern unsigned long frame_count;
+extern volatile unsigned char stack[255], stack_length;
 
 //Fills the whole screen with a color.
 void fillScreen(const unsigned char color);

@@ -9,7 +9,7 @@
 using namespace cimg_library;
 
 unsigned char frame[120][120];
-unsigned char stack[256] = {0x00,0xBE}, stack_length;
+volatile unsigned char stack[255], stack_length, done = 0;
 unsigned long frame_count = 0;
 int CPUpid = 0;
 
@@ -77,7 +77,7 @@ void executeStack(){
                 drawLine(x1,y1,x2,y2,stack[++i]);
                 break;                
             }
-            case 0x14:{ //drawRect
+            case 0x14:{ //drawRect²
                 const unsigned char x1 = stack[++i];
                 const unsigned char y1 = stack[++i];
                 const unsigned char x2 = stack[++i];
@@ -153,36 +153,36 @@ void executeStack(){
 
 void stackProcess(int v){
     FILE* stackFile = fopen("bin/stack.cringedata","rb");
-    fread(&stack_length,1,1,stackFile);
-    fread(stack,1,stack_length,stackFile);
+    fread((void *)&stack_length,1,1,stackFile);
+    fread((void *)stack,1,stack_length,stackFile);
     fclose(stackFile);
     executeStack();
+    done = 1;
 }
 
 void getCPUpid(int v){
-    // FILE* stackFile = fopen("bin/stack.cringedata","rb");
-    // fread(&stack_length,1,1,stackFile);
-    // fread(stack,1,stack_length,stackFile);
-    // fclose(stackFile);
+    FILE* pidFile = fopen("bin/CPUpid","r");
+    fscanf(pidFile,"%d",&CPUpid);
+    fclose(pidFile);
+    printf("%d\n",CPUpid);
 }
 
 int main(){
 
+    signal(SIGRTMIN+1, stackProcess);
+    signal(SIGRTMIN, getCPUpid);
+    usleep(1000);
+    while(!CPUpid);
+
     CImgDisplay main_window(120,120,"Braun Fighters",0);
     CImg<unsigned char> img(120,120,1,3);
 
-    unsigned long prevTime = clock();
-
-    signal(SIGRTMIN, stackProcess);
-    signal(SIGRTMIN+1, getCPUpid);
-
     while(!main_window.is_closed()){
 
-        frame_count++;
+        kill(CPUpid, SIGRTMIN+1);
+        while(!done) usleep(1000);
 
-        int t50 = 20000 - (clock() - prevTime);
-        usleep(t50 > 0 ? t50 : 0);
-        prevTime = clock();
+        frame_count++;
 
         if(main_window.is_resized()) main_window.resize(main_window.window_width(),main_window.window_height());
         for(int i = 0 ; i < 120 ; i++)
@@ -190,6 +190,8 @@ int main(){
                 img.draw_point(j,i,colors[frame[i][j]]);
             }
         main_window.display(img);
+
+        done = 0;
     }
 
     return 0;

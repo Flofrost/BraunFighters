@@ -1,20 +1,6 @@
 {
     "configurations": [
         {
-            "name": "AVR",
-            "intelliSenseMode": "linux-gcc-x64",
-            "cStandard": "c11",
-            "cppStandard": "c++14",
-            "compilerPath": "/bin/avr-g++",
-            "includePath": [
-                "${workspaceFolder}/**"
-            ],
-            "compilerArgs": [
-                "-O2",
-                "-mmcu=atmega1284"
-            ]
-        },
-        {
             "name": "Linux",
             "intelliSenseMode": "linux-gcc-x64",
             "cStandard": "c11",
