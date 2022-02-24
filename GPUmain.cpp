@@ -10,8 +10,8 @@ using namespace cimg_library;
 
 unsigned char frame[120][120];
 volatile unsigned char stack[255], stack_length, done = 0;
-unsigned long frame_count = 0;
-int CPUpid = 0;
+unsigned long frame_count = 0, timestamp;
+volatile int CPUpid = 0;
 
 void executeStack(){
     for(unsigned char i = 0 ; i < stack_length ; i++){
@@ -164,26 +164,22 @@ void getCPUpid(int v){
     FILE* pidFile = fopen("bin/CPUpid","r");
     fscanf(pidFile,"%d",&CPUpid);
     fclose(pidFile);
-    printf("%d\n",CPUpid);
 }
 
 int main(){
 
-    signal(SIGRTMIN+1, stackProcess);
     signal(SIGRTMIN, getCPUpid);
-    usleep(1000);
+    signal(35, stackProcess);
+
     while(!CPUpid);
 
     CImgDisplay main_window(120,120,"Braun Fighters",0);
     CImg<unsigned char> img(120,120,1,3);
+    timestamp = clock();
 
     while(!main_window.is_closed()){
 
-        kill(CPUpid, SIGRTMIN+1);
-        while(!done) usleep(1000);
-
         frame_count++;
-
         if(main_window.is_resized()) main_window.resize(main_window.window_width(),main_window.window_height());
         for(int i = 0 ; i < 120 ; i++)
             for(int j = 0 ; j < 120 ; j++){
@@ -191,7 +187,12 @@ int main(){
             }
         main_window.display(img);
 
+        kill(CPUpid, 35);
+        while(!done);
         done = 0;
+        int freeTime = 20000 - (clock() - timestamp);
+        usleep(freeTime > 0 ? freeTime : 0);
+        timestamp = clock();
     }
 
     return 0;
