@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <signal.h>
+#include "sources/GPU.h"
 
 volatile int GPUpid = 0;
-volatile unsigned char stackLength = 6, stack[255] = {0x00,0x07,0x05,0x07,0x07,0xFB};
+volatile unsigned char stack_length = 0, stack[255];
 
 void getGPUpid(int v){
     FILE* pidFile = fopen("bin/GPUpid","r");
@@ -14,10 +15,10 @@ void getGPUpid(int v){
 
 void writeStack(int v){
     FILE* stackFile = fopen("bin/stack.cringedata","wb");
-    fwrite((void*)&stackLength,1,1,stackFile);
-    if(stackLength) fwrite((void*)stack,1,stackLength,stackFile);
+    fwrite((void*)&stack_length,1,1,stackFile);
+    if(stack_length) fwrite((void*)stack,1,stack_length,stackFile);
     fclose(stackFile);
-    stackLength = 0;
+    stack_length = 0;
     kill(GPUpid,35);
 }
 
@@ -26,10 +27,12 @@ int main(){
     signal(35, writeStack);
 
     while(!GPUpid);
+    fillScreen(0x07);
+    drawString(0x10,0x10,"Hello",0xBE);
     while(1){
-        if(!stackLength){
-            stack[stackLength++] = 0x01;
-            stack[stackLength++] = 0x03;
+        if(!stack_length){
+            stack[stack_length++] = 0x01;
+            stack[stack_length++] = 0x03;
         }
     }
 

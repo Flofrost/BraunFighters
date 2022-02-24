@@ -42,13 +42,6 @@ void executeStack(){
                 drawGrid(x,y,stack[++i]);
                 break;
             }
-            #ifdef DEBUG
-            case 0x06:{ //downloadScreen
-                downloadScreen(stack[++i]);
-                stack_length = 0;
-                break;
-            }
-            #endif
             case 0x10:{ //setPixel
                 const unsigned char x = stack[++i];
                 const unsigned char y = stack[++i];

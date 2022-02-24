@@ -2,9 +2,9 @@
 
 mkdir bin 2> /dev/null
 
-files=( "CPUmain.cpp" )
+files=( "CPUmain.cpp" "sources/CPU.cpp" )
 libs=(  )
-flags=(  )
-warns=( "-Wfatal-errors" )
+flags=( "-O2" )
+warns=( "-Wfatal-errors" "-Wno-unused-result" )
 
 g++ ${files[@]} -o bin/braunFightersCPU ${flags[@]} ${warns[@]}
