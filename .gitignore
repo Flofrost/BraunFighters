@@ -1,5 +1,5 @@
-.vscode
 *.wav
 *.asm
 *.elf
+bin
 tests

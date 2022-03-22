@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mkdir bin 2> /dev/null
+avr-gcc -mmcu=atmega1284 -DDEBUG -O2 -Wfatal-errors GPU.c src/CringeGraphics.c src/lowMath.c -o bin/GPU.elf || read
+echo done

@@ -1,6 +1,6 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include "sources/SynthX.h"
+#include "src/CringeSynth.h"
 
 #define clkF() DDRD |= 0x80
 #define clkR() DDRD &= 0x7F

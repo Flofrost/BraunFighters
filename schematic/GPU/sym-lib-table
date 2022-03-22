@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name GraphixCard-rescue)(type Legacy)(uri ${KIPRJMOD}/GraphixCard-rescue.lib)(options "")(descr ""))
+)
